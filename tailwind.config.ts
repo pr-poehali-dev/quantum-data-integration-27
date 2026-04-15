@@ -19,7 +19,21 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Montserrat', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+				sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+			},
+			colors: {
+				obsidian: '#0B0B0B',
+				emerald: {
+					deep: '#0F3D2E',
+					mid: '#1B5E4B',
+					light: '#2A7A62',
+				},
+				gold: {
+					DEFAULT: '#C9A84C',
+					muted: '#A08030',
+					light: '#E0C070',
+				},
 			},
 			colors: {
 				border: 'hsl(var(--border))',

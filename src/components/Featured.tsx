@@ -1,23 +1,329 @@
+import { motion } from "framer-motion";
+
+const painPoints = [
+  "Учишь значения карт, но не чувствуешь их — знания есть, ощущения нет",
+  "Сомневаешься в себе при каждом раскладе — «а вдруг я ошибаюсь?»",
+  "Расклады не дают точности — видишь карты, но не видишь смысл",
+  "Боишься ошибиться и навредить — себе или тому, кому раскидываешь",
+];
+
+const results = [
+  "Читаешь карты без шаблонов — через ощущение, а не заучивание",
+  "Доверяешь себе и своей интуиции без страха и сомнений",
+  "Видишь глубже — за символами открывается живая система",
+  "Можешь зарабатывать на Таро, помогая другим",
+];
+
 export default function Featured() {
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0 bg-white">
-      <div className="flex-1 h-[400px] lg:h-[800px] mb-8 lg:mb-0 lg:order-2">
-        <img
-          src="/images/woman-horse.jpg"
-          alt="Woman on horse in countryside"
-          className="w-full h-full object-cover"
+    <div style={{ backgroundColor: "var(--color-obsidian)" }}>
+
+      {/* БЛОК БОЛИ */}
+      <section
+        className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-20 lg:py-0"
+        style={{ borderTop: "1px solid rgba(27,94,75,0.2)" }}
+      >
+        <div
+          className="flex-1 h-[400px] lg:h-[800px] mb-12 lg:mb-0 lg:order-2 relative overflow-hidden"
+        >
+          <img
+            src="https://cdn.poehali.dev/projects/d3eb11a1-1c27-44d1-b140-7a765845e189/files/41796228-d3d9-49af-bf0e-f0d105e2f3e0.jpg"
+            alt="Мистическая атмосфера Таро"
+            className="w-full h-full object-cover"
+            style={{ filter: "brightness(0.6) saturate(0.8)" }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, var(--color-obsidian) 0%, transparent 40%)",
+            }}
+          />
+        </div>
+
+        <div className="flex-1 text-left lg:h-[800px] flex flex-col justify-center lg:mr-16 lg:order-1 max-w-xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-10" style={{ backgroundColor: "var(--color-gold)" }} />
+            <span className="text-xs uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
+              Узнаёшь себя?
+            </span>
+          </div>
+
+          <h2
+            className="font-serif font-light mb-10 leading-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#F0EAD8" }}
+          >
+            Почему у тебя<br />
+            <em>не получается</em>
+          </h2>
+
+          <ul className="space-y-5">
+            {painPoints.map((point, i) => (
+              <motion.li
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="flex gap-4 items-start"
+              >
+                <span
+                  className="mt-1 shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs"
+                  style={{
+                    backgroundColor: "rgba(15,61,46,0.6)",
+                    border: "1px solid rgba(27,94,75,0.5)",
+                    color: "var(--color-gold)",
+                  }}
+                >
+                  ✦
+                </span>
+                <span className="text-base leading-relaxed" style={{ color: "rgba(240,234,216,0.7)" }}>
+                  {point}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* БЛОК РЕШЕНИЯ */}
+      <section
+        className="relative px-6 py-32 text-center overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, var(--color-emerald-deep) 0%, var(--color-obsidian) 60%)",
+          borderTop: "1px solid rgba(27,94,75,0.3)",
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse at 50% 50%, rgba(27,94,75,0.2) 0%, transparent 70%)",
+          }}
         />
-      </div>
-      <div className="flex-1 text-left lg:h-[800px] flex flex-col justify-center lg:mr-12 lg:order-1">
-        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-600">Функции, которые не стоят на месте</h3>
-        <p className="text-2xl lg:text-4xl mb-8 text-neutral-900 leading-tight">
-          Не просто список возможностей — живые, дышащие акценты. Каждая функция адаптируется к движению, контексту и настроению,
-          оживляя продукт с первого взгляда.
-        </p>
-        <button className="bg-black text-white border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer w-fit uppercase tracking-wide">
-          Подробнее
-        </button>
-      </div>
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-16 opacity-40" style={{ backgroundColor: "var(--color-gold)" }} />
+            <span className="text-xs uppercase tracking-[0.3em] opacity-60" style={{ color: "var(--color-gold)" }}>
+              Этот курс — не про карты
+            </span>
+            <div className="h-px w-16 opacity-40" style={{ backgroundColor: "var(--color-gold)" }} />
+          </div>
+          <h2
+            className="font-serif font-light mb-6 leading-tight"
+            style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", color: "#F0EAD8" }}
+          >
+            Это про состояние,
+            <br />
+            <em style={{ color: "var(--color-gold)" }}>в котором ты начинаешь видеть глубже</em>
+          </h2>
+          <p className="text-lg leading-relaxed font-light" style={{ color: "rgba(240,234,216,0.6)" }}>
+            Таро — это язык. Когда ты научишься говорить на нём, карты перестают быть картинками.
+            Они становятся зеркалом — точным, честным и живым.
+          </p>
+        </div>
+      </section>
+
+      {/* БЛОК О СПИКЕРЕ */}
+      <section
+        className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-20 lg:py-0"
+        style={{ borderTop: "1px solid rgba(27,94,75,0.2)" }}
+      >
+        <div className="flex-1 h-[400px] lg:h-[700px] mb-12 lg:mb-0 relative overflow-hidden">
+          <img
+            src="https://cdn.poehali.dev/projects/d3eb11a1-1c27-44d1-b140-7a765845e189/files/2ade5d25-9c25-4740-a56d-9098c6ce43ab.jpg"
+            alt="Мастер Таро"
+            className="w-full h-full object-cover"
+            style={{ filter: "brightness(0.75)" }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to left, var(--color-obsidian) 0%, transparent 40%)",
+            }}
+          />
+        </div>
+
+        <div className="flex-1 text-left lg:h-[700px] flex flex-col justify-center lg:ml-16 max-w-xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-10" style={{ backgroundColor: "var(--color-gold)" }} />
+            <span className="text-xs uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
+              Проводник
+            </span>
+          </div>
+          <h2
+            className="font-serif font-light mb-6 leading-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#F0EAD8" }}
+          >
+            Я не учу Таро.
+            <br />
+            <em>Я открываю путь</em>
+          </h2>
+          <p className="text-base leading-relaxed mb-4 font-light" style={{ color: "rgba(240,234,216,0.7)" }}>
+            Более 8 лет я работаю с Таро как живой системой — не как набором значений, а как способом
+            читать реальность. За эти годы прошли сотни личных сессий, закрытых практик и групповых
+            погружений.
+          </p>
+          <p className="text-base leading-relaxed mb-8 font-light" style={{ color: "rgba(240,234,216,0.7)" }}>
+            Мой путь начался не с книг, а с вопросов без ответов. Таро дало мне язык для того,
+            что я уже чувствовала. Теперь я передаю этот язык тебе.
+          </p>
+          <div
+            className="border-l-2 pl-5 py-2"
+            style={{ borderColor: "var(--color-emerald-mid)", color: "rgba(240,234,216,0.5)" }}
+          >
+            <p className="text-sm italic font-light">
+              Закрытый канал · Личные практики · Живое сопровождение
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ПРОГРАММА КУРСА */}
+      <section
+        id="program"
+        className="px-6 py-32"
+        style={{
+          borderTop: "1px solid rgba(27,94,75,0.2)",
+          background: "linear-gradient(to bottom, var(--color-obsidian), rgba(15,61,46,0.08), var(--color-obsidian))",
+        }}
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-16 opacity-40" style={{ backgroundColor: "var(--color-gold)" }} />
+              <span className="text-xs uppercase tracking-[0.3em] opacity-60" style={{ color: "var(--color-gold)" }}>
+                7 модулей
+              </span>
+              <div className="h-px w-16 opacity-40" style={{ backgroundColor: "var(--color-gold)" }} />
+            </div>
+            <h2
+              className="font-serif font-light"
+              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", color: "#F0EAD8" }}
+            >
+              Программа курса
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { num: "01", title: "Основы Таро", desc: "Структура колоды, история, принципы работы с картами" },
+              { num: "02", title: "Старшие и Младшие Арканы", desc: "Глубокое погружение в символику и архетипы" },
+              { num: "03", title: "Расклады", desc: "Классические и авторские расклады для разных запросов" },
+              { num: "04", title: "Интуиция", desc: "Развитие чувствования — как слышать карты, а не читать их" },
+              { num: "05", title: "Энергетика", desc: "Работа с энергией карт, пространством и клиентом" },
+              { num: "06", title: "Ритуалы", desc: "Очищение колоды, подготовка к сессии, защитные практики" },
+              { num: "07", title: "Заработок на Таро", desc: "Как монетизировать знания и выстроить практику" },
+            ].map((module, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="p-6 transition-all duration-300 hover:bg-white/[0.02] group cursor-default"
+                style={{
+                  border: "1px solid rgba(27,94,75,0.25)",
+                  background: "rgba(15,61,46,0.05)",
+                }}
+              >
+                <div
+                  className="text-4xl font-serif font-light mb-3 opacity-30 group-hover:opacity-50 transition-opacity"
+                  style={{ color: "var(--color-gold)" }}
+                >
+                  {module.num}
+                </div>
+                <h3
+                  className="font-serif text-xl mb-2"
+                  style={{ color: "#F0EAD8" }}
+                >
+                  {module.title}
+                </h3>
+                <p className="text-sm font-light" style={{ color: "rgba(240,234,216,0.5)" }}>
+                  {module.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* РЕЗУЛЬТАТЫ */}
+      <section
+        className="px-6 py-32"
+        style={{ borderTop: "1px solid rgba(27,94,75,0.2)" }}
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-16 opacity-40" style={{ backgroundColor: "var(--color-gold)" }} />
+              <span className="text-xs uppercase tracking-[0.3em] opacity-60" style={{ color: "var(--color-gold)" }}>
+                Результат
+              </span>
+              <div className="h-px w-16 opacity-40" style={{ backgroundColor: "var(--color-gold)" }} />
+            </div>
+            <h2
+              className="font-serif font-light"
+              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", color: "#F0EAD8" }}
+            >
+              После курса ты
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+            {results.map((result, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="p-8 text-center"
+                style={{
+                  background: "linear-gradient(135deg, rgba(15,61,46,0.2) 0%, rgba(11,11,11,0.5) 100%)",
+                  border: "1px solid rgba(27,94,75,0.3)",
+                }}
+              >
+                <div className="text-3xl mb-4" style={{ color: "var(--color-gold)" }}>✦</div>
+                <p className="text-base leading-relaxed font-light" style={{ color: "rgba(240,234,216,0.8)" }}>
+                  {result}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div
+            id="access"
+            className="text-center py-16 px-8"
+            style={{
+              background: "linear-gradient(135deg, rgba(15,61,46,0.3), rgba(11,11,11,0.8))",
+              border: "1px solid rgba(27,94,75,0.4)",
+            }}
+          >
+            <h3
+              className="font-serif font-light mb-4"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#F0EAD8" }}
+            >
+              Готова войти?
+            </h3>
+            <p className="mb-8 font-light" style={{ color: "rgba(240,234,216,0.5)" }}>
+              Доступ — ограничен. Места открываются редко.
+            </p>
+            <a
+              href="#access"
+              className="inline-block px-12 py-5 text-sm uppercase tracking-widest font-medium transition-all duration-500 hover:opacity-90"
+              style={{
+                background: "linear-gradient(135deg, var(--color-emerald-deep), var(--color-emerald-mid))",
+                color: "#F0EAD8",
+                boxShadow: "0 0 40px rgba(27,94,75,0.5)",
+              }}
+            >
+              Получить доступ
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
