@@ -44,6 +44,25 @@
   }
 }
 
+/* Fallback-шрифты с точными метриками для нулевого CLS */
+@font-face {
+  font-family: "Inter-fallback";
+  src: local("Arial");
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 107%;
+}
+
+@font-face {
+  font-family: "Cormorant-fallback";
+  src: local("Georgia");
+  ascent-override: 88%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 95%;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -54,6 +73,7 @@
     background-color: var(--color-obsidian);
     font-family:
       "Inter",
+      "Inter-fallback",
       system-ui,
       -apple-system,
       sans-serif;
@@ -62,7 +82,16 @@
   h1,
   h2,
   h3 {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: "Cormorant Garamond", "Cormorant-fallback", Georgia, serif;
+  }
+}
+
+/* Отключаем тяжёлые анимации при prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

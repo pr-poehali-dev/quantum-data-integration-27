@@ -1,14 +1,21 @@
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
+
+const HERO_IMG =
+  "https://cdn.poehali.dev/projects/d3eb11a1-1c27-44d1-b140-7a765845e189/files/41796228-d3d9-49af-bf0e-f0d105e2f3e0.jpg";
 
 export default function Hero() {
   const container = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "50vh"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  // При prefers-reduced-motion — статика, без параллакса
+  const y = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? ["0vh", "0vh"] : ["0vh", "40vh"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <div
@@ -16,14 +23,20 @@ export default function Hero() {
       className="relative flex items-center justify-center h-screen overflow-hidden"
       style={{ backgroundColor: "var(--color-obsidian)" }}
     >
-      {/* Фоновое изображение с параллаксом */}
-      <motion.div style={{ y }} className="absolute inset-0 w-full h-full">
+      {/* LCP-изображение: fetchpriority=high, eager load, no lazy */}
+      <motion.div style={{ y }} className="absolute inset-0 w-full h-full will-change-transform">
         <img
-          src="https://cdn.poehali.dev/projects/d3eb11a1-1c27-44d1-b140-7a765845e189/files/41796228-d3d9-49af-bf0e-f0d105e2f3e0.jpg"
-          alt="Таро — мистическая атмосфера"
+          src={HERO_IMG}
+          alt=""
+          role="presentation"
+          fetchPriority="high"
+          decoding="async"
+          loading="eager"
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover"
+          style={{ contentVisibility: "auto" }}
         />
-        {/* Многослойный тёмный оверлей */}
         <div
           className="absolute inset-0"
           style={{
@@ -31,7 +44,6 @@ export default function Hero() {
               "linear-gradient(to bottom, rgba(11,11,11,0.3) 0%, rgba(11,11,11,0.1) 40%, rgba(11,11,11,0.7) 80%, rgba(11,11,11,1) 100%)",
           }}
         />
-        {/* Изумрудное туманное свечение */}
         <div
           className="absolute inset-0"
           style={{
@@ -43,7 +55,6 @@ export default function Hero() {
 
       {/* Контент */}
       <motion.div style={{ opacity }} className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Декоративная линия */}
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="h-px w-16 opacity-50" style={{ backgroundColor: "var(--color-gold)" }} />
           <span
@@ -77,9 +88,10 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#access"
-            className="px-10 py-4 text-sm uppercase tracking-widest transition-all duration-500 font-medium hover:opacity-90"
+            className="px-10 py-4 text-sm uppercase tracking-widest transition-opacity duration-300 font-medium hover:opacity-80"
             style={{
-              background: "linear-gradient(135deg, var(--color-emerald-deep), var(--color-emerald-mid))",
+              background:
+                "linear-gradient(135deg, var(--color-emerald-deep), var(--color-emerald-mid))",
               color: "#F0EAD8",
               boxShadow: "0 0 30px rgba(27,94,75,0.4)",
             }}
@@ -88,16 +100,20 @@ export default function Hero() {
           </a>
           <a
             href="#program"
-            className="px-10 py-4 text-sm uppercase tracking-widest border transition-all duration-300 hover:bg-white/5"
+            className="px-10 py-4 text-sm uppercase tracking-widest border transition-colors duration-300 hover:bg-white/5"
             style={{ borderColor: "rgba(201,168,76,0.4)", color: "rgba(201,168,76,0.8)" }}
           >
             Программа курса
           </a>
         </div>
 
-        {/* Скролл-индикатор */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-          <div className="w-px h-12" style={{ background: "linear-gradient(to bottom, transparent, var(--color-gold))" }} />
+          <div
+            className="w-px h-12"
+            style={{
+              background: "linear-gradient(to bottom, transparent, var(--color-gold))",
+            }}
+          />
         </div>
       </motion.div>
     </div>

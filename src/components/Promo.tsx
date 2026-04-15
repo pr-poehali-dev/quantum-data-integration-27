@@ -1,13 +1,23 @@
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
+
+const PROMO_IMG =
+  "https://cdn.poehali.dev/projects/d3eb11a1-1c27-44d1-b140-7a765845e189/files/ea266067-d923-4830-8b17-700d76dc525a.jpg";
 
 export default function Promo() {
   const container = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-10vh", "10vh"]);
+
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    prefersReducedMotion ? ["0vh", "0vh"] : ["-8vh", "8vh"]
+  );
 
   return (
     <div
@@ -16,14 +26,18 @@ export default function Promo() {
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
-        <motion.div style={{ y }} className="relative w-full h-full">
+        <motion.div style={{ y }} className="relative w-full h-full will-change-transform">
           <img
-            src="https://cdn.poehali.dev/projects/d3eb11a1-1c27-44d1-b140-7a765845e189/files/ea266067-d923-4830-8b17-700d76dc525a.jpg"
-            alt="Мистические символы Таро"
+            src={PROMO_IMG}
+            alt=""
+            role="presentation"
+            loading="lazy"
+            decoding="async"
+            width={1920}
+            height={1080}
             className="w-full h-full object-cover"
             style={{ filter: "brightness(0.5) saturate(1.2)" }}
           />
-          {/* Изумрудный градиент поверх */}
           <div
             className="absolute inset-0"
             style={{
