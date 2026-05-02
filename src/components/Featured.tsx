@@ -29,11 +29,15 @@ const modules = [
   { num: "07", title: "Заработок на Таро", desc: "Как монетизировать знания и выстроить практику" },
 ];
 
+const TEXT_PRIMARY = "#F5EFE0";
+const TEXT_BODY = "rgba(245,239,224,0.88)";
+const TEXT_MUTED = "rgba(245,239,224,0.6)";
+
 function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-6">
       <div className="h-px w-10" style={{ backgroundColor: "var(--color-gold)" }} />
-      <span className="text-xs uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
+      <span className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--color-gold)" }}>
         {children}
       </span>
     </div>
@@ -43,11 +47,11 @@ function SectionLabel({ children }: { children: string }) {
 function CenterLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center justify-center gap-4 mb-6">
-      <div className="h-px w-16 opacity-40" style={{ backgroundColor: "var(--color-gold)" }} />
-      <span className="text-xs uppercase tracking-[0.3em] opacity-60" style={{ color: "var(--color-gold)" }}>
+      <div className="h-px w-16 opacity-60" style={{ backgroundColor: "var(--color-gold)" }} />
+      <span className="text-xs uppercase tracking-[0.3em] font-bold" style={{ color: "var(--color-gold)" }}>
         {children}
       </span>
-      <div className="h-px w-16 opacity-40" style={{ backgroundColor: "var(--color-gold)" }} />
+      <div className="h-px w-16 opacity-60" style={{ backgroundColor: "var(--color-gold)" }} />
     </div>
   );
 }
@@ -96,11 +100,11 @@ export default function Featured() {
         <div className="flex-1 text-left lg:h-[800px] flex flex-col justify-center lg:mr-16 lg:order-1 max-w-xl">
           <SectionLabel>Узнаёшь себя?</SectionLabel>
           <h2
-            className="font-serif font-light mb-10 leading-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#F0EAD8" }}
+            className="font-serif font-bold mb-10 leading-tight"
+            style={{ fontSize: "clamp(2.2rem, 4vw, 3.8rem)", color: TEXT_PRIMARY }}
           >
             Почему у тебя<br />
-            <em>не получается</em>
+            <em className="font-normal italic">не получается</em>
           </h2>
           <ul className="space-y-5">
             {painPoints.map((point, i) => (
@@ -115,7 +119,7 @@ export default function Featured() {
                 >
                   ✦
                 </span>
-                <span className="text-base leading-relaxed" style={{ color: "rgba(240,234,216,0.7)" }}>
+                <span className="text-base leading-relaxed" style={{ color: TEXT_BODY }}>
                   {point}
                 </span>
               </motion.li>
@@ -143,16 +147,16 @@ export default function Featured() {
         <div className="relative z-10 max-w-3xl mx-auto">
           <CenterLabel>Этот курс — не про карты</CenterLabel>
           <h2
-            className="font-serif font-light mb-6 leading-tight"
-            style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", color: "#F0EAD8" }}
+            className="font-serif font-bold mb-6 leading-tight"
+            style={{ fontSize: "clamp(2.4rem, 5vw, 4.2rem)", color: TEXT_PRIMARY }}
           >
             Это про состояние,
             <br />
-            <em style={{ color: "var(--color-gold)" }}>
+            <em className="font-normal italic" style={{ color: "var(--color-gold)" }}>
               в котором ты начинаешь видеть глубже
             </em>
           </h2>
-          <p className="text-lg leading-relaxed font-light" style={{ color: "rgba(240,234,216,0.6)" }}>
+          <p className="text-lg leading-relaxed" style={{ color: TEXT_BODY }}>
             Таро — это язык. Когда ты научишься говорить на нём, карты перестают быть картинками.
             Они становятся зеркалом — точным, честным и живым.
           </p>
@@ -186,27 +190,27 @@ export default function Featured() {
         <div className="flex-1 text-left lg:h-[700px] flex flex-col justify-center lg:ml-16 max-w-xl">
           <SectionLabel>Проводник</SectionLabel>
           <h2
-            className="font-serif font-light mb-6 leading-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#F0EAD8" }}
+            className="font-serif font-bold mb-6 leading-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", color: TEXT_PRIMARY }}
           >
             Я не учу Таро.
             <br />
-            <em>Я открываю путь</em>
+            <em className="font-normal italic">Я открываю путь</em>
           </h2>
-          <p className="text-base leading-relaxed mb-4 font-light" style={{ color: "rgba(240,234,216,0.7)" }}>
+          <p className="text-base leading-relaxed mb-4" style={{ color: TEXT_BODY }}>
             Более 8 лет я работаю с Таро как живой системой — не как набором значений, а как способом
             читать реальность. За эти годы прошли сотни личных сессий, закрытых практик и групповых
             погружений.
           </p>
-          <p className="text-base leading-relaxed mb-8 font-light" style={{ color: "rgba(240,234,216,0.7)" }}>
+          <p className="text-base leading-relaxed mb-8" style={{ color: TEXT_BODY }}>
             Мой путь начался не с книг, а с вопросов без ответов. Таро дало мне язык для того,
             что я уже чувствовала. Теперь я передаю этот язык тебе.
           </p>
           <div
             className="border-l-2 pl-5 py-2"
-            style={{ borderColor: "var(--color-emerald-mid)", color: "rgba(240,234,216,0.5)" }}
+            style={{ borderColor: "var(--color-emerald-mid)", color: TEXT_MUTED }}
           >
-            <p className="text-sm italic font-light">
+            <p className="text-sm italic">
               Закрытый канал · Личные практики · Живое сопровождение
             </p>
           </div>
@@ -227,8 +231,8 @@ export default function Featured() {
           <div className="text-center mb-16">
             <CenterLabel>7 модулей</CenterLabel>
             <h2
-              className="font-serif font-light"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", color: "#F0EAD8" }}
+              className="font-serif font-bold"
+              style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", color: TEXT_PRIMARY }}
             >
               Программа курса
             </h2>
@@ -239,22 +243,22 @@ export default function Featured() {
               <motion.div
                 key={i}
                 {...fadeIn(i)}
-                className="p-6 transition-colors duration-300 hover:bg-white/[0.02] group cursor-default"
+                className="p-6 transition-colors duration-300 hover:bg-white/[0.03] group cursor-default"
                 style={{
                   border: "1px solid rgba(27,94,75,0.25)",
                   background: "rgba(15,61,46,0.05)",
                 }}
               >
                 <div
-                  className="text-4xl font-serif font-light mb-3 opacity-30 group-hover:opacity-50 transition-opacity duration-300"
+                  className="text-4xl font-serif font-bold mb-3 opacity-40 group-hover:opacity-60 transition-opacity duration-300"
                   style={{ color: "var(--color-gold)" }}
                 >
                   {module.num}
                 </div>
-                <h3 className="font-serif text-xl mb-2" style={{ color: "#F0EAD8" }}>
+                <h3 className="font-serif font-bold text-xl mb-2" style={{ color: TEXT_PRIMARY }}>
                   {module.title}
                 </h3>
-                <p className="text-sm font-light" style={{ color: "rgba(240,234,216,0.5)" }}>
+                <p className="text-sm" style={{ color: TEXT_MUTED }}>
                   {module.desc}
                 </p>
               </motion.div>
@@ -272,8 +276,8 @@ export default function Featured() {
           <div className="text-center mb-16">
             <CenterLabel>Результат</CenterLabel>
             <h2
-              className="font-serif font-light"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", color: "#F0EAD8" }}
+              className="font-serif font-bold"
+              style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", color: TEXT_PRIMARY }}
             >
               После курса ты
             </h2>
@@ -294,7 +298,7 @@ export default function Featured() {
                 <div className="text-3xl mb-4" style={{ color: "var(--color-gold)" }}>
                   ✦
                 </div>
-                <p className="text-base leading-relaxed font-light" style={{ color: "rgba(240,234,216,0.8)" }}>
+                <p className="text-base leading-relaxed font-bold" style={{ color: TEXT_PRIMARY }}>
                   {result}
                 </p>
               </motion.div>
@@ -312,21 +316,21 @@ export default function Featured() {
             }}
           >
             <h3
-              className="font-serif font-light mb-4"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#F0EAD8" }}
+              className="font-serif font-bold mb-4"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", color: TEXT_PRIMARY }}
             >
               Готова войти?
             </h3>
-            <p className="mb-8 font-light" style={{ color: "rgba(240,234,216,0.5)" }}>
+            <p className="mb-8 text-lg" style={{ color: TEXT_MUTED }}>
               Доступ — ограничен. Места открываются редко.
             </p>
             <a
               href="#access"
-              className="inline-block px-12 py-5 text-sm uppercase tracking-widest font-medium transition-opacity duration-300 hover:opacity-80"
+              className="inline-block px-12 py-5 text-base uppercase tracking-widest font-bold transition-opacity duration-300 hover:opacity-80"
               style={{
                 background:
                   "linear-gradient(135deg, var(--color-emerald-deep), var(--color-emerald-mid))",
-                color: "#F0EAD8",
+                color: TEXT_PRIMARY,
                 boxShadow: "0 0 40px rgba(27,94,75,0.5)",
               }}
             >

@@ -47,8 +47,8 @@ export default function Footer() {
             {/* Большой заголовок и копирайт */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
               <h1
-                className="font-serif font-light text-[20vw] sm:text-[18vw] lg:text-[15vw] leading-[0.85] mt-4 sm:mt-6 lg:mt-10"
-                style={{ color: "#F0EAD8" }}
+                className="font-serif font-bold text-[20vw] sm:text-[18vw] lg:text-[15vw] leading-[0.85] mt-4 sm:mt-6 lg:mt-10"
+                style={{ color: "#F5EFE0" }}
               >
                 ТАРО
               </h1>

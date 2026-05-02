@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-				serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+				sans: ['Lato', 'system-ui', '-apple-system', 'sans-serif'],
+				serif: ['Playfair Display', 'Georgia', 'serif'],
 			},
 			colors: {
 				obsidian: '#0B0B0B',

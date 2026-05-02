@@ -56,8 +56,8 @@ export default function Promo() {
       </h3>
 
       <p
-        className="absolute bottom-12 right-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl z-10 font-serif font-light leading-tight"
-        style={{ color: "#F0EAD8" }}
+        className="absolute bottom-12 right-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl z-10 font-serif font-bold leading-tight"
+        style={{ color: "#F5EFE0" }}
       >
         Таро — это не предсказание будущего.{" "}
         <em style={{ color: "var(--color-gold)" }}>

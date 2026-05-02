@@ -67,19 +67,19 @@ export default function Hero() {
         </div>
 
         <h1
-          className="font-serif font-light mb-6 leading-[1.1]"
-          style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", color: "#F0EAD8" }}
+          className="font-serif font-bold mb-6 leading-[1.1]"
+          style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)", color: "#F5EFE0" }}
         >
           Ты чувствуешь больше,
           <br />
-          <em>чем видишь.</em>
+          <em className="font-normal italic">чем видишь.</em>
           <br />
           <span style={{ color: "var(--color-gold)" }}>Научись читать это.</span>
         </h1>
 
         <p
-          className="text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light"
-          style={{ color: "rgba(240,234,216,0.65)" }}
+          className="text-xl md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed font-light"
+          style={{ color: "rgba(245,239,224,0.9)" }}
         >
           Не просто карты. Система, которая открывает доступ к интуиции,
           <br className="hidden md:block" /> энергии и реальности.

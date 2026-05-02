@@ -46,21 +46,21 @@
 
 /* Fallback-шрифты с точными метриками для нулевого CLS */
 @font-face {
-  font-family: "Inter-fallback";
+  font-family: "Lato-fallback";
   src: local("Arial");
-  ascent-override: 90%;
-  descent-override: 22%;
+  ascent-override: 93%;
+  descent-override: 24%;
   line-gap-override: 0%;
-  size-adjust: 107%;
+  size-adjust: 100%;
 }
 
 @font-face {
-  font-family: "Cormorant-fallback";
+  font-family: "Playfair-fallback";
   src: local("Georgia");
-  ascent-override: 88%;
-  descent-override: 24%;
+  ascent-override: 91%;
+  descent-override: 26%;
   line-gap-override: 0%;
-  size-adjust: 95%;
+  size-adjust: 98%;
 }
 
 @layer base {
@@ -72,17 +72,28 @@
     @apply bg-background text-foreground;
     background-color: var(--color-obsidian);
     font-family:
-      "Inter",
-      "Inter-fallback",
+      "Lato",
+      "Lato-fallback",
       system-ui,
       -apple-system,
       sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #e8e0d0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
   h2,
-  h3 {
-    font-family: "Cormorant Garamond", "Cormorant-fallback", Georgia, serif;
+  h3,
+  h4 {
+    font-family: "Playfair Display", "Playfair-fallback", Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  p {
+    color: rgba(232, 224, 208, 0.85);
   }
 }
 
