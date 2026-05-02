@@ -74,7 +74,18 @@ export default function Hero() {
           <br />
           <em className="font-normal italic">чем видишь.</em>
           <br />
-          <span style={{ color: "var(--color-gold)" }}>Научись читать это.</span>
+          <span
+            style={{
+              color: "#E8C84A",
+              fontStyle: "italic",
+              fontWeight: 400,
+              letterSpacing: "0.04em",
+              textShadow: "0 0 40px rgba(232,200,74,0.45), 0 2px 0 rgba(0,0,0,0.4)",
+              display: "inline-block",
+            }}
+          >
+            Научись читать это.
+          </span>
         </h1>
 
         <p
