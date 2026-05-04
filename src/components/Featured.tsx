@@ -5,13 +5,10 @@ const SPEAKER_IMG =
   "https://cdn.poehali.dev/projects/d3eb11a1-1c27-44d1-b140-7a765845e189/files/2ade5d25-9c25-4740-a56d-9098c6ce43ab.jpg";
 
 const speakerStats = [
-  "Сертифицированный астролог более 2-х лет",
-  "Сертифицированный таролог более 5 лет",
-  "Высшее психологическое образование",
-  "2 года опыта работы в живом Instagram",
-  "Автор метода Код Кармы",
-  "Более 200 довольных клиентов на раскладах Таро",
-  "230 000 рублей вложено в обучение",
+  "Таролог с 10-летним стажем",
+  "Создательница и владелица эзотерического магазина и пространства в Сочи — Misteria",
+  "Создатель и главный ректор Misteria University",
+  "Автор закрытого Telegram-канала",
 ];
 
 const forWhomPoints = [
@@ -272,10 +269,10 @@ export default function Featured() {
               className="font-serif text-xl font-bold uppercase tracking-widest mb-1"
               style={{ color: TEXT_PRIMARY }}
             >
-              Евгения Полякова
+              Аксинья Радчевская
             </div>
             <div className="text-sm uppercase tracking-widest mb-4" style={{ color: "var(--color-gold)", opacity: 0.7 }}>
-              Таролог · Астролог
+              Таролог · Основатель Misteria
             </div>
             <GoldDivider />
           </div>

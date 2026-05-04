@@ -56,7 +56,7 @@ export default function Hero() {
           className="font-serif text-4xl sm:text-5xl font-bold tracking-[0.18em] uppercase mb-2"
           style={{ color: "#F5EFE0", textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
         >
-          Тарология
+          Искусство Таро
         </div>
 
         <div

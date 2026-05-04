@@ -10,7 +10,7 @@ export default function Header({ className }: HeaderProps) {
           className="font-serif text-xl tracking-[0.2em] uppercase"
           style={{ color: "var(--color-gold)" }}
         >
-          Тарология
+          Misteria
         </div>
         <nav className="flex gap-8 items-center">
           <a
