@@ -27,7 +27,7 @@ export default function Hero() {
           src={HERO_IMG}
           alt=""
           role="presentation"
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
           loading="eager"
           width={1920}
