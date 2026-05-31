@@ -35,10 +35,10 @@ export default function Footer() {
                 >
                   Контакт
                 </h3>
-                <a href="#" className="text-white/60 hover:text-white transition-colors duration-300 text-sm sm:text-base">
+                <a href="https://t.me/Misteriasecret_bot" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300 text-sm sm:text-base">
                   Telegram
                 </a>
-                <a href="#" className="text-white/60 hover:text-white transition-colors duration-300 text-sm sm:text-base">
+                <a href="https://www.instagram.com/misteria_university?igsh=NTF0ZTR6cDFmZGty" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300 text-sm sm:text-base">
                   Instagram
                 </a>
               </div>
