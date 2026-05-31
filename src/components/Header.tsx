@@ -12,12 +12,28 @@ export default function Header({ className }: HeaderProps) {
         >
           Misteria
         </div>
-        <nav className="flex gap-8 items-center">
+        <nav className="flex gap-6 items-center">
           <a
             href="#program"
-            className="text-white/60 hover:text-white transition-colors duration-300 uppercase text-xs tracking-widest"
+            className="text-white/60 hover:text-white transition-colors duration-300 uppercase text-xs tracking-widest hidden sm:block"
           >
             Программа
+          </a>
+          <a
+            href="https://t.me/Misteriasecret_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/60 hover:text-white transition-colors duration-300 uppercase text-xs tracking-widest"
+          >
+            Telegram
+          </a>
+          <a
+            href="https://www.instagram.com/misteria_university?igsh=NTF0ZTR6cDFmZGty"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/60 hover:text-white transition-colors duration-300 uppercase text-xs tracking-widest hidden sm:block"
+          >
+            Instagram
           </a>
           <a
             href="#access"
