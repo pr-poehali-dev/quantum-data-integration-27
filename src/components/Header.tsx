@@ -17,7 +17,7 @@ export default function Header({ className }: HeaderProps) {
             href="#program"
             className="text-white/60 hover:text-white transition-colors duration-300 uppercase text-xs tracking-widest hidden sm:block"
           >
-            Программа
+            Содержание
           </a>
           <a
             href="https://t.me/Misteriasecret_bot"
@@ -40,7 +40,7 @@ export default function Header({ className }: HeaderProps) {
             className="border px-5 py-2 text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white/5"
             style={{ borderColor: "var(--color-gold)", color: "var(--color-gold)" }}
           >
-            Получить доступ
+            Форматы
           </a>
         </nav>
       </div>

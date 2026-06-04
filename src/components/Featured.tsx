@@ -1,5 +1,4 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { useState } from "react";
 
 const SPEAKER_IMG =
   "https://cdn.poehali.dev/projects/d3eb11a1-1c27-44d1-b140-7a765845e189/files/2ade5d25-9c25-4740-a56d-9098c6ce43ab.jpg";
@@ -39,20 +38,20 @@ const forWhomPoints = [
 ];
 
 const modules = [
-  { num: "1", title: "Введение в Таро: база, смысл и подход", lessons: [], bonus: [], result: "" },
-  { num: "2", title: "Структура колоды и логика Арканов", lessons: [], bonus: [], result: "" },
-  { num: "3", title: "Старшие Арканы: путь героя", lessons: [], bonus: [], result: "" },
-  { num: "4", title: "Младшие Арканы: структура и смысл повседневности", lessons: [], bonus: [], result: "" },
-  { num: "5", title: "Масти: стихии и характер процессов", lessons: [], bonus: [], result: "" },
-  { num: "6", title: "Придворные карты: люди, роли и проявления", lessons: [], bonus: [], result: "" },
-  { num: "7", title: "Ситуационные карты: от Туза до Десятки", lessons: [], bonus: [], result: "" },
-  { num: "8", title: "Каждая карта отдельно: мои значения, наработки и опыт", lessons: [], bonus: [], result: "" },
-  { num: "9", title: "Как читать карты: символы, детали и смысл", lessons: [], bonus: [], result: "" },
-  { num: "10", title: "Интуиция и собственный стиль чтения", lessons: [], bonus: [], result: "" },
-  { num: "11", title: "Практика раскладов", lessons: [], bonus: [], result: "" },
-  { num: "12", title: "Разбор готовых раскладов", lessons: [], bonus: [], result: "" },
-  { num: "13", title: "Итоговый модуль: систематизация и путь дальше", lessons: [], bonus: [], result: "" },
-  { num: "★", title: "Бонусный модуль: Логика, ритуальная часть и профессиональная практика", lessons: ["Как выстраивать защиту во время просмотров", "Как делать свечу-отвод", "Как ставить непрогляд", "Как снимать непрогляд, чтобы увидеть скрытое", "Как входить в состояние, где работает интуиция"], bonus: [], result: "Особый модуль, который открывается не всем, а по определённым условиям" },
+  { num: "1", title: "Введение в Таро: база, смысл и подход" },
+  { num: "2", title: "Структура колоды и логика Арканов" },
+  { num: "3", title: "Старшие Арканы: путь героя" },
+  { num: "4", title: "Младшие Арканы: структура и смысл повседневности" },
+  { num: "5", title: "Масти: стихии и характер процессов" },
+  { num: "6", title: "Придворные карты: люди, роли и проявления" },
+  { num: "7", title: "Ситуационные карты: от Туза до Десятки" },
+  { num: "8", title: "Каждая карта отдельно: авторские значения, наработки и опыт" },
+  { num: "9", title: "Как читать карты: символы, детали и смысл" },
+  { num: "10", title: "Интуиция и собственный стиль чтения" },
+  { num: "11", title: "Практика раскладов" },
+  { num: "12", title: "Разбор готовых раскладов" },
+  { num: "13", title: "Систематизация и путь дальше" },
+  { num: "★", title: "Особый блок: Логика, ритуальная часть и профессиональная практика" },
 ];
 
 const TEXT_PRIMARY = "#F5EFE0";
@@ -79,97 +78,30 @@ function GoldDivider() {
   );
 }
 
-function ModuleAccordion({ mod, index }: { mod: typeof modules[0]; index: number }) {
-  const [open, setOpen] = useState(index === 0);
-
+function ModuleItem({ mod }: { mod: typeof modules[0] }) {
   return (
     <div
-      className="border-b"
+      className="flex items-center gap-4 py-4 border-b"
       style={{ borderColor: "rgba(201,168,76,0.15)" }}
     >
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-5 px-0 text-left transition-colors duration-200 hover:opacity-90"
+      <span
+        className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold"
+        style={{
+          background: "linear-gradient(135deg, var(--color-emerald-deep), var(--color-emerald-mid))",
+          border: "1px solid rgba(27,94,75,0.6)",
+          color: "var(--color-gold)",
+        }}
       >
-        <div className="flex items-center gap-4">
-          <span
-            className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold"
-            style={{
-              background: "linear-gradient(135deg, var(--color-emerald-deep), var(--color-emerald-mid))",
-              border: "1px solid rgba(27,94,75,0.6)",
-              color: "var(--color-gold)",
-            }}
-          >
-            ✦
-          </span>
-          <div>
-            <div className="text-xs uppercase tracking-widest mb-0.5" style={{ color: "var(--color-gold)", opacity: 0.7 }}>
-              {mod.num} модуль
-            </div>
-            <div className="text-base font-medium" style={{ color: TEXT_PRIMARY }}>
-              {mod.title}
-            </div>
-          </div>
+        ✦
+      </span>
+      <div>
+        <div className="text-xs uppercase tracking-widest mb-0.5" style={{ color: "var(--color-gold)", opacity: 0.7 }}>
+          {mod.num === "★" ? "Особый блок" : `${mod.num} часть`}
         </div>
-        <span
-          className="text-lg transition-transform duration-300 flex-shrink-0 ml-4"
-          style={{
-            color: "var(--color-gold)",
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-          }}
-        >
-          ⌄
-        </span>
-      </button>
-
-      {open && (
-        <div className="pb-6 px-0">
-          <div
-            className="text-xs uppercase tracking-widest mb-3"
-            style={{ color: "var(--color-gold)", opacity: 0.6 }}
-          >
-            Уроки:
-          </div>
-          <ul className="space-y-2 mb-5">
-            {mod.lessons.map((l, i) => (
-              <li key={i} className="flex gap-2 items-start text-sm" style={{ color: TEXT_BODY }}>
-                <span style={{ color: "var(--color-gold)", flexShrink: 0 }}>✦</span>
-                {l}
-              </li>
-            ))}
-          </ul>
-          <div
-            className="text-xs uppercase tracking-widest mb-3"
-            style={{ color: "var(--color-gold)", opacity: 0.6 }}
-          >
-            Дополнительные материалы:
-          </div>
-          <ul className="space-y-2 mb-5">
-            {mod.bonus.map((b, i) => (
-              <li key={i} className="flex gap-2 items-start text-sm" style={{ color: TEXT_BODY }}>
-                <span style={{ color: "var(--color-gold)", flexShrink: 0 }}>✦</span>
-                {b}
-              </li>
-            ))}
-          </ul>
-          <div
-            className="p-4 text-sm leading-relaxed"
-            style={{
-              background: "rgba(15,61,46,0.2)",
-              border: "1px solid rgba(27,94,75,0.3)",
-              color: TEXT_BODY,
-            }}
-          >
-            <span
-              className="text-xs uppercase tracking-widest block mb-2"
-              style={{ color: "var(--color-gold)", opacity: 0.7 }}
-            >
-              Результаты модуля:
-            </span>
-            {mod.result}
-          </div>
+        <div className="text-base font-medium" style={{ color: TEXT_PRIMARY }}>
+          {mod.title}
         </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -237,7 +169,7 @@ export default function Featured() {
         className="px-6 py-20 max-w-2xl mx-auto"
         style={{ borderTop: "1px solid rgba(27,94,75,0.2)" }}
       >
-        <SectionTitle>Этот курс для тебя, если..</SectionTitle>
+        <SectionTitle>Это для тебя, если..</SectionTitle>
 
         <div
           className="flex items-center justify-center mb-10"
@@ -268,17 +200,17 @@ export default function Featured() {
         </ul>
       </section>
 
-      {/* ПРОГРАММА */}
+      {/* СОДЕРЖАНИЕ */}
       <section
         id="program"
         className="px-6 py-20 max-w-2xl mx-auto"
         style={{ borderTop: "1px solid rgba(27,94,75,0.2)" }}
       >
-        <SectionTitle>Программа:</SectionTitle>
+        <SectionTitle>Содержание:</SectionTitle>
 
         <div className="space-y-0">
           {modules.map((mod, i) => (
-            <ModuleAccordion key={i} mod={mod} index={i} />
+            <ModuleItem key={i} mod={mod} />
           ))}
         </div>
       </section>

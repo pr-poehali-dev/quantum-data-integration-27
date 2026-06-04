@@ -19,13 +19,13 @@ export default function Footer() {
                   className="mb-1 sm:mb-2 uppercase text-xs sm:text-sm tracking-widest"
                   style={{ color: "rgba(201,168,76,0.6)" }}
                 >
-                  Курс
+                  Практика
                 </h3>
                 <a href="#program" className="text-white/60 hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                  Программа
+                  Содержание
                 </a>
                 <a href="#access" className="text-white/60 hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                  Получить доступ
+                  Форматы
                 </a>
               </div>
               <div className="flex flex-col gap-1 sm:gap-2">
@@ -57,7 +57,7 @@ export default function Footer() {
                   {new Date().getFullYear()}
                 </p>
                 <p className="text-white/30 text-xs">
-                  Онлайн-курс по Таро
+                  Секреты Мистер Таро
                 </p>
               </div>
             </div>

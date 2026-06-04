@@ -64,7 +64,7 @@ export default function Hero() {
           style={{ color: "var(--color-gold)" }}
         >
           <div className="h-px flex-1 opacity-50" style={{ backgroundColor: "var(--color-gold)" }} />
-          <span className="text-xs uppercase tracking-[0.3em] opacity-80">Онлайн-курс</span>
+          <span className="text-xs uppercase tracking-[0.3em] opacity-80">Авторская практика</span>
           <div className="h-px flex-1 opacity-50" style={{ backgroundColor: "var(--color-gold)" }} />
         </div>
 
