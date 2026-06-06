@@ -33,7 +33,7 @@ const tariffs = [
     ],
     result: "Вы получаете уверенное базовое понимание системы, структуру для самостоятельной работы и основу, на которой можно строить дальнейший путь.",
     price: "13 000 ₽",
-    payUrl: "https://payform.ru/k3bGC1V/",
+    payUrl: "https://payform.ru/rdbHyCQ/",
     accent: false,
   },
   {
