@@ -33,7 +33,7 @@ const tariffs = [
     ],
     result: "Вы получаете уверенное базовое понимание системы, структуру для самостоятельной работы и основу, на которой можно строить дальнейший путь.",
     price: "13 000 ₽",
-    payUrl: "https://payform.ru/rdbHyCQ/",
+    payUrl: "https://payform.ru/f5bJHc8/",
     accent: false,
   },
   {
@@ -50,7 +50,7 @@ const tariffs = [
     ],
     result: "Вы начинаете чувствовать карты увереннее, глубже понимать их смысл, развивать интуицию и получать поддержку на каждом шаге.",
     price: "33 000 ₽",
-    payUrl: "https://payform.ru/57bHyEv/",
+    payUrl: "https://payform.ru/h7bJHde/",
     accent: false,
   },
   {
@@ -69,7 +69,7 @@ const tariffs = [
     ],
     result: "Вы проходите путь в интенсивном формате, быстрее растёте в понимании таро, получаете персональное сопровождение и движетесь к уверенной самостоятельной практике.",
     price: "69 000 ₽",
-    payUrl: "https://payform.ru/57bHyFG/",
+    payUrl: "https://payform.ru/j5bJHeg/",
     accent: true,
   },
 ];
